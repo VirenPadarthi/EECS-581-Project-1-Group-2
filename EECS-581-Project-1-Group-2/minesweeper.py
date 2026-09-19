@@ -211,8 +211,6 @@ def reset_game():
 def set_tile_state(tile):
     count = 0
 
-    print("In set_tile_state, tile is [", tile.x, ",", tile.y, "]")
-
     for dy in (-1, 0, 1):
         for dx in (-1, 0, 1):
             nx = tile.x + dx
@@ -232,13 +230,10 @@ def set_tile_state(tile):
 
 def is_valid_index(x, y) -> bool:
     if x >= boardSize or y >= boardSize:
-        print("x/y greater than board limit returning false ")
         return False
     if x < 0 or y < 0:
-        print("x/y is less than 0")
         return False
             
-    print("returning true ")
     return True
 
 # Draw the board for the user
@@ -329,6 +324,14 @@ while True:
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_r:
                 reset_game()
+            
+            # Added debug auto win for testing. Press tilde/backquote to flag every bomb
+            ## Parker
+            elif event.key == pygame.K_BACKQUOTE:
+                for row in board:
+                        for tile in row:
+                            if tile.has_bomb:
+                                tile.state = -2
 
         # Check for mouse clicks, run if one is made
         elif event.type == pygame.MOUSEBUTTONUP:
