@@ -1,3 +1,11 @@
+# Names: Parker Albright, Aidan Atwood, Joseph Wen H Tan, Ever Armenta, Atique Ahanaf Danial, Viren Chowdary Padarthi
+# Course: EECS 581: Software Engineering II
+# Project: Minesweeper
+# Description: This program creates a 10 x 10 board and randomly populates the spaces with bombs. The goal
+#              is to clear all safe spaces without tripping a bomb. A space will become blank on click or
+#              show a number indicating how many bombs are touching the space.
+# Date: 9/19/2026
+
 import pygame
 import sys
 import random
